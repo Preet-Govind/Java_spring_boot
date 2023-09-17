@@ -14,11 +14,17 @@ public class Day1Application {
 		{
 			System.out.println(s);
 			}
-		//same thing below
-		for(String s : ((ApplicationContext) SpringApplication.run(Day1Application.class, args)).getBeanDefinitionNames() ) 
+		/*
+		same thing below , either of them should be ran to
+		avoid multiple launches for the same port 
+		*/
+		
+		/*
+		 for(String s : ((ApplicationContext) SpringApplication.run(Day1Application.class, args)).getBeanDefinitionNames() ) 
 		{
 			System.out.println(s);
 			}
+		 */
 	}
 
 }
