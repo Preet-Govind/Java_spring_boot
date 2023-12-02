@@ -1,4 +1,5 @@
 package com.example.demospringframework;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.*;
 
 record Person (String name ,int age,Address address) {};//replacement for setter getters - auto constructors - jdk16
@@ -8,7 +9,14 @@ public class HelloWorldConfiguration {
 	@Bean
 	public String name()
 	{
-		return "bean returns";
+		return "bean returns a name";
+	}
+	
+	@Bean
+	@Qualifier("name2")
+	public String Name2()
+	{
+		return "bean returns name2";
 	}
 
 	@Bean
@@ -50,7 +58,7 @@ public class HelloWorldConfiguration {
 	}
 	
 	@Bean
-	public Person person3Params(String name , int age , Address address2)
+	public Person person3Params(@Qualifier("name2") String name , int age , Address address2)
 	{
 		return new Person(name,age,address2);
 	}

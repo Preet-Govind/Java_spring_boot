@@ -3,6 +3,8 @@ package com.example.demospringframework;
 import com.example.demospringframework.game.GameRunner;
 import com.example.demospringframework.game.PacmanGame;
 
+import java.util.Arrays;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.example.demospringframework.game.*;
@@ -26,5 +28,7 @@ public class App02HelloWorldSpring {
 		System.out.println(context.getBean("address"));
 		//bean calling bean methods
 		System.out.println("by method calling :"+context.getBean("person2MethodCalling"));
+		
+		Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println);
 	}
 }
